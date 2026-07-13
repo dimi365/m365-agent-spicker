@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dimi365 · Blog</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/avatar-digital.svg">
   <style>
     :root { --bg:#f3f2ef; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
     a{color:inherit;text-decoration:none}
     .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:10}
+    .topbar .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:620;font-size:15px}
+    .topbar .brand img{width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5)}
     .topbar nav{display:flex;gap:14px;font-size:13px}
     .topbar nav a{color:#fff}
     .topnav{background:#ffffffd9;backdrop-filter:blur(5px);border-bottom:1px solid var(--stroke);position:sticky;top:56px;z-index:9}
@@ -35,10 +38,12 @@
 </head>
 <body>
   <header class="topbar">
-    <strong>Dimi365 · Blog</strong>
+    <a class="brand" href="../index.html" aria-label="Zur Startseite">
+      <img src="../assets/img/avatar-digital.svg" alt="Dimi365 Avatar">
+      Dimi365 · Power Platform Hub
+    </a>
     <nav>
       <a href="../index.html">Home</a>
-      <a href="../spicker/index.html">Spicker</a>
     </nav>
   </header>
 

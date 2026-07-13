@@ -4,9 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microsoft 365 Agent-Spicker</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/avatar-digital.svg">
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .site-topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:10}
+    .site-topbar .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:620;font-size:15px}
+    .site-topbar .brand img{width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5)}
+    .site-topnav{background:#ffffffd9;backdrop-filter:blur(5px);border-bottom:1px solid #e3e1de;position:sticky;top:56px;z-index:9}
+    .site-topnav .wrap{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;gap:10px;overflow:auto}
+    .site-topnav a{font-size:13px;font-weight:600;color:#3f3b47;border:1px solid #e3e1de;background:#fff;border-radius:999px;padding:6px 12px;white-space:nowrap;text-decoration:none}
+    .site-topnav a.active{background:#f3eaff;border-color:#d7c0ef;color:#4e2372}
+    @media(max-width:640px){.site-topbar{height:auto;min-height:56px;padding:8px 12px}.site-topnav{top:72px}}
+  </style>
 </head>
 <body>
+  <header class="site-topbar">
+    <a class="brand" href="../index.html" aria-label="Zur Startseite">
+      <img src="../assets/img/avatar-digital.svg" alt="Dimi365 Avatar">
+      Dimi365 · Power Platform Hub
+    </a>
+  </header>
+  <nav class="site-topnav" aria-label="Hauptnavigation">
+    <div class="wrap">
+      <a href="../index.html">Home</a>
+      <a href="../blog/index.html">Blog</a>
+      <a class="active" href="index.html">Spicker</a>
+      <a href="../themen/power-automate.html">Themen</a>
+    </div>
+  </nav>
   <div class="page">
     <header>
       <div class="logo"><span></span><span></span><span></span><span></span></div>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a1240"/>
+      <stop offset="55%" stop-color="#4a1d5e"/>
+      <stop offset="100%" stop-color="#742774"/>
+    </linearGradient>
+    <linearGradient id="hud" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#39d6ff" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#0f6cbd" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0%" stop-color="#39d6ff" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#39d6ff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Punktraster wie Canvas-App-Editor -->
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#ffffff" opacity=".14"/>
+    </pattern>
+    <clipPath id="round"><rect width="512" height="512" rx="96"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <rect width="512" height="512" fill="url(#dots)"/>
+
+    <!-- Flow-Konnektoren: Nodes + Linien wie im Power-Automate-Designer -->
+    <g stroke="#39d6ff" stroke-width="2.5" fill="none" opacity=".5">
+      <path d="M40 96 H110 Q122 96 122 108 V150"/>
+      <path d="M472 80 H404 Q392 80 392 92 V138"/>
+      <path d="M60 430 V386 Q60 374 72 374 H120"/>
+      <path d="M452 420 V372 Q452 360 440 360 H408"/>
+    </g>
+    <g>
+      <rect x="26" y="82" width="30" height="30" rx="8" fill="#0066ff"/>
+      <path d="M45 89 L36 100 h6 l-4 10 10 -12 h-6 z" fill="#fff"/>
+      <rect x="458" y="66" width="30" height="30" rx="8" fill="#088272"/>
+      <path d="M473 72 l10 6 v10 l-10 6 -10 -6 v-10 z" fill="none" stroke="#fff" stroke-width="2.5"/>
+      <rect x="42" y="416" width="30" height="30" rx="8" fill="#f2c811"/>
+      <g fill="#3b1a53"><rect x="49" y="430" width="4" height="8" rx="1"/><rect x="55" y="424" width="4" height="14" rx="1"/><rect x="61" y="427" width="4" height="11" rx="1"/></g>
+      <rect x="438" y="406" width="30" height="30" rx="8" fill="#0f6cbd"/>
+      <circle cx="453" cy="421" r="7" fill="none" stroke="#fff" stroke-width="2.5"/>
+      <circle cx="453" cy="421" r="2.5" fill="#fff"/>
+      <!-- Verbindungspunkte -->
+      <circle cx="122" cy="150" r="4" fill="#39d6ff"/>
+      <circle cx="392" cy="138" r="4" fill="#39d6ff"/>
+      <circle cx="120" cy="374" r="4" fill="#39d6ff"/>
+      <circle cx="408" cy="360" r="4" fill="#39d6ff"/>
+    </g>
+
+    <!-- Glow hinter dem Kopf -->
+    <circle cx="256" cy="240" r="190" fill="url(#glow)"/>
+
+    <!-- Auswahlrahmen wie im Canvas-Studio um die Figur -->
+    <g stroke="#39d6ff" stroke-width="2" fill="none" opacity=".55" stroke-dasharray="6 6">
+      <rect x="120" y="92" width="272" height="330" rx="10"/>
+    </g>
+    <g fill="#39d6ff" opacity=".9">
+      <rect x="114" y="86" width="12" height="12" rx="3"/>
+      <rect x="386" y="86" width="12" height="12" rx="3"/>
+      <rect x="114" y="416" width="12" height="12" rx="3"/>
+      <rect x="386" y="416" width="12" height="12" rx="3"/>
+    </g>
+
+    <!-- Figur -->
+    <g>
+      <!-- Schultern -->
+      <path d="M76 512 C86 412 156 356 256 356 C356 356 426 412 436 512 Z" fill="#33415c"/>
+      <!-- digitale Hemd-Textur: Schaltkreis -->
+      <g stroke="#5f7ba6" stroke-width="3" fill="none" opacity=".7">
+        <path d="M140 470 h40 v-24 h30"/>
+        <path d="M372 480 h-44 v-30 h-26"/>
+        <path d="M256 512 v-40 h-24"/>
+      </g>
+      <g fill="#8fd0ff">
+        <circle cx="210" cy="446" r="4"/><circle cx="302" cy="450" r="4"/><circle cx="232" cy="472" r="4"/>
+      </g>
+      <!-- Kragen -->
+      <path d="M216 366 L256 412 L296 366 L296 396 L256 440 L216 396 Z" fill="#dbe7f4"/>
+
+      <!-- Hals -->
+      <rect x="226" y="308" width="60" height="70" rx="24" fill="#e8a06b"/>
+      <rect x="226" y="308" width="60" height="34" fill="#d18a55"/>
+
+      <!-- Kopf -->
+      <ellipse cx="256" cy="228" rx="98" ry="106" fill="#f0ad76"/>
+      <circle cx="166" cy="240" r="15" fill="#f0ad76"/>
+      <circle cx="346" cy="240" r="15" fill="#f0ad76"/>
+
+      <!-- Haare -->
+      <path d="M158 214 C154 138 200 108 256 106 C318 104 362 142 356 214
+               C352 190 334 170 312 166 C300 186 292 190 268 178
+               C236 196 196 190 178 172 C166 182 160 196 158 214 Z" fill="#8a5a2b"/>
+      <path d="M178 172 C206 156 236 152 268 178 C288 190 302 184 312 166 C296 148 278 140 256 140 C222 140 196 152 178 172 Z" fill="#a06c36"/>
+
+      <!-- Brauen -->
+      <path d="M186 216 L238 208" stroke="#7a4c22" stroke-width="10" stroke-linecap="round"/>
+      <path d="M326 216 L274 208" stroke="#7a4c22" stroke-width="10" stroke-linecap="round"/>
+
+      <!-- HUD-Brille: Gläser mit Daten-Reflexion -->
+      <g>
+        <rect x="176" y="222" width="72" height="54" rx="12" fill="#0b2038" fill-opacity=".55" stroke="#39d6ff" stroke-width="5"/>
+        <rect x="264" y="222" width="72" height="54" rx="12" fill="#0b2038" fill-opacity=".55" stroke="#39d6ff" stroke-width="5"/>
+        <path d="M248 244 L264 244" stroke="#39d6ff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M176 240 L164 238 M336 240 L348 238" stroke="#39d6ff" stroke-width="5" stroke-linecap="round"/>
+        <!-- Code-Zeilen im Glas -->
+        <g stroke="url(#hud)" stroke-width="4" stroke-linecap="round">
+          <path d="M186 236 h30"/><path d="M186 248 h44"/><path d="M186 260 h22"/>
+          <path d="M274 236 h26"/><path d="M274 248 h48"/><path d="M274 260 h34"/>
+        </g>
+        <path d="M296 228 L278 272" stroke="url(#shine)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M206 228 L192 264" stroke="url(#shine)" stroke-width="7" stroke-linecap="round"/>
+      </g>
+
+      <!-- Augen hinter dem Glas -->
+      <circle cx="212" cy="252" r="9" fill="#bfe9ff"/>
+      <circle cx="300" cy="252" r="9" fill="#bfe9ff"/>
+
+      <!-- Nase + Mund -->
+      <path d="M256 262 L252 292 L262 294" fill="none" stroke="#d18a55" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M236 316 Q256 326 276 316" fill="none" stroke="#b06a3e" stroke-width="7" stroke-linecap="round"/>
+
+    </g>
+
+    <!-- Label-Chip wie eine Fluent-Badge -->
+    <g>
+      <rect x="176" y="446" width="160" height="34" rx="17" fill="#ffffff" fill-opacity=".12" stroke="#39d6ff" stroke-width="2"/>
+      <circle cx="198" cy="463" r="6" fill="#39d6ff"/>
+      <text x="214" y="469" font-family="Segoe UI, sans-serif" font-size="17" font-weight="600" fill="#ffffff">dimi365.dev</text>
+    </g>
+
+    <!-- Produktfarben-Kante -->
+    <g>
+      <rect x="0" y="498" width="128" height="14" fill="#0066ff"/>
+      <rect x="128" y="498" width="128" height="14" fill="#0f6cbd"/>
+      <rect x="256" y="498" width="128" height="14" fill="#088272"/>
+      <rect x="384" y="498" width="128" height="14" fill="#f2c811"/>
+    </g>
+  </g>
+
+  <rect x="3" y="3" width="506" height="506" rx="94" fill="none" stroke="#39d6ff" stroke-opacity=".5" stroke-width="4"/>
+</svg>
