@@ -157,6 +157,57 @@ footer a { color: var(--brand); text-decoration: none; }
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 .dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
 
+/* ---------- Mobile (stacked cards instead of wide table) ---------- */
+@media (max-width: 640px) {
+  .page { margin: 12px; border-radius: 10px; }
+  header { padding: 16px 18px; gap: 12px; }
+  header h1 { font-size: 18px; }
+  .table-wrap { padding: 12px 12px 4px; }
+
+  table { font-size: 13px; }
+  thead { display: none; }
+  tbody, tbody tr, tbody td { display: block; width: 100%; }
+
+  tbody tr {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 6px 12px 10px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  tbody tr:hover td { background: transparent; }
+  tbody tr:nth-child(even) td { background: transparent; }
+
+  tbody td {
+    border: none;
+    padding: 8px 0;
+    width: 100% !important;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td:last-child { border-bottom: none; }
+
+  tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    color: var(--brand);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  td.usecase::before { content: "Use Case"; }
+  td:nth-of-type(2)::before { content: "Empfohlenes Werkzeug"; }
+  td.hint::before { content: "Hinweis"; }
+
+  td.usecase { width: 100% !important; font-size: 14px; }
+  td.hint { width: 100% !important; }
+  .pill { white-space: normal; }
+
+  footer { padding: 12px 18px 20px; }
+}
+
 /* ---------- Print (A4 landscape) ---------- */
 @media print {
   html, body { background: #fff; font-size: 10px; }
