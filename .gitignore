@@ -1,0 +1,11 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.log
+
+# Build / temp
+dist/
+node_modules/
+*.tmp

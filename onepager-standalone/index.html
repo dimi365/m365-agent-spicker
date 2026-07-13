@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft 365 Agent-Spicker</title>
+<style>
+  :root {
+    --brand:        #0F6CBD;  /* Fluent 2 brand */
+    --brand-dark:   #115EA3;
+    --brand-2:      #2899F5;
+    --ink:          #242424;
+    --ink-soft:     #616161;
+    --line:         #E1DFDD;
+    --zebra:        #F5F9FD;
+    --bg:           #FAF9F8;
+    --pill-bg:      #EFF6FC;
+    --pill-ink:     #0F548C;
+    --warn-bg:      #FFF4CE;
+    --warn-ink:     #7A4D05;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 24px auto;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 1.6px 3.6px rgba(0,0,0,.10), 0 0.3px 0.9px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, var(--brand-2) 100%);
+    color: #fff;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo {
+    width: 34px; height: 34px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    flex: none;
+  }
+  .logo span { border-radius: 2px; }
+  .logo span:nth-child(1){ background:#F25022; }
+  .logo span:nth-child(2){ background:#7FBA00; }
+  .logo span:nth-child(3){ background:#00A4EF; }
+  .logo span:nth-child(4){ background:#FFB900; }
+  header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
+  header p {
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    opacity: .92;
+    font-weight: 400;
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap { padding: 20px 24px 8px; }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 11.6px;
+  }
+  thead th {
+    background: var(--brand);
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: 9px 12px;
+    position: sticky; top: 0;
+  }
+  thead th:first-child { border-top-left-radius: 8px; }
+  thead th:last-child  { border-top-right-radius: 8px; }
+
+  tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) td { background: var(--zebra); }
+  tbody tr:hover td { background: #EAF3FB; }
+
+  td.usecase { font-weight: 600; color: var(--ink); width: 27%; }
+  td.hint    { color: var(--ink-soft); width: 46%; }
+
+  /* Tool badge */
+  .pill {
+    display: inline-block;
+    background: var(--pill-bg);
+    color: var(--pill-ink);
+    border: 1px solid #CBE3F7;
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 10.8px;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .pill.multi { white-space: normal; border-radius: 10px; }
+
+  /* Inline note tag */
+  .tag {
+    display: inline-block;
+    background: var(--warn-bg);
+    color: var(--warn-ink);
+    border-radius: 4px;
+    padding: 0 5px;
+    font-weight: 600;
+    font-size: 10.5px;
+  }
+  .correction { color: var(--brand-dark); font-weight: 600; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 12px 32px 22px;
+    color: var(--ink-soft);
+    font-size: 10.5px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer a { color: var(--brand); text-decoration: none; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+
+  /* ---------- Print ---------- */
+  @media print {
+    html, body { background: #fff; font-size: 10px; }
+    .page { margin: 0; border: none; box-shadow: none; border-radius: 0; max-width: none; }
+    thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    tbody tr:nth-child(even) td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4 landscape; margin: 8mm; }
+    tr { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo"><span></span><span></span><span></span><span></span></div>
+      <div>
+        <h1>Microsoft 365 Agent-Spicker</h1>
+        <p>Welches Werkzeug für welchen Use Case &mdash; verifizierte Grenzen &amp; Hinweise</p>
+      </div>
+    </header>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Use Case</th>
+            <th>Empfohlenes Werkzeug</th>
+            <th>Verifizierte Grenze / Hinweis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="usecase">Nur Web-Recherche, Drafting &ndash; keine Work-/Tenant-Daten</td>
+            <td><span class="pill">M365 Copilot Chat (ohne Lizenz)</span></td>
+            <td class="hint">Geeignet für öffentliche Web-Recherche und Drafting. Für Work-/Graph-Grounding oder Zugriff auf Tenant-Daten braucht es eine M365-Copilot-Lizenz oder eine PAYG-/Agent-Konfiguration.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Tiefe Web-/Work-Recherche mit Microsoft Researcher</td>
+            <td><span class="pill">Researcher-Agent / M365 Copilot</span></td>
+            <td class="hint">Researcher ist eine Capability innerhalb von Microsoft 365 Copilot. Sichtbarkeit hängt von Lizenzierung, Rollout und Admin-Konfiguration ab.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Copilot direkt auf SharePoint-Site / Dokumenten-Q&amp;A</td>
+            <td><span class="pill">SharePoint Agent (ready-made)</span></td>
+            <td class="hint">Jede SharePoint-Site hat einen ready-made Agent auf Basis der Site-Inhalte. Nutzung erfordert M365 Copilot Lizenz oder aktivierten Pay-as-you-go-Service.</td>
+          </tr>
+          <tr>
+            <td class="usecase">SharePoint-Agent mit eigener Quellen-Auswahl</td>
+            <td><span class="pill">SharePoint Agent (custom)</span></td>
+            <td class="hint">Bis zu <strong>20 Source Items</strong> (Sites, Dokumentbibliotheken, Ordner oder Dateien). Bei mehr als 20 Quellen höheres Nesting nutzen &ndash; ganze Site/Library statt einzelner Dateien.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Mehrere Sites / grössere Wissensbasis / viele Knowledge Sources</td>
+            <td><span class="pill">Copilot Studio</span></td>
+            <td class="hint">Bis zu <strong>500 Knowledge Sources</strong> pro Agent über alle Typen hinweg.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Eine einzelne SharePoint-/Microsoft-Liste als Knowledge Source</td>
+            <td><span class="pill multi">Copilot Studio <span class="tag">nicht SharePoint Agent</span></span></td>
+            <td class="hint"><span class="correction">Korrigiert:</span> SharePoint Agents nutzen gemäss offizieller Microsoft-FAQ aktuell <strong>keine</strong> Daten aus Listen. Auch für eine einzelne Liste muss Copilot Studio verwendet werden.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Mehrere SharePoint-Listen</td>
+            <td><span class="pill">Copilot Studio</span></td>
+            <td class="hint">Bis zu <strong>15 Listen</strong> pro Agent (empfohlen max. 10). Max. <strong>35&rsquo;000 Rows pro Liste</strong> und insgesamt max. <strong>120&rsquo;000 Rows</strong>; grössere Listen beeinträchtigen Qualität und Latenz.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Analytische Fragen über strukturierte Listendaten</td>
+            <td><span class="pill multi">Copilot Studio + SharePoint Lists Knowledge</span></td>
+            <td class="hint">Geeignet für Durchschnittswerte, Aggregationen, Counts oder strukturierte Abfragen. <span class="tag">Hinweis</span> List-Abfragen berücksichtigen nur die ersten <strong>2&rsquo;048 Zeilen</strong> und Agenten können keinen Code ausführen &ndash; bei grossen Listen können Antworten ungenau sein.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Filtern, OData-Abfragen, gezielte Queries, Schreiben in Listen/Systeme</td>
+            <td><span class="pill multi">Copilot Studio + Actions / Agent Flow / Power Automate / Connector</span></td>
+            <td class="hint">Für gezielte Abfragen, Business-Logik, Writebacks oder CRUD-Szenarien Actions, Agent Flows, Power Automate oder Connectoren nutzen. Knowledge Sources allein sind dafür nicht der richtige Mechanismus.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Persönliche Files/Folders</td>
+            <td><span class="pill">OneDrive Agent</span></td>
+            <td class="hint">Für persönliche Dateien und Ordner in OneDrive. Der Agent wird als <code>.agent</code> gespeichert und nutzt die ausgewählten Files/Folders als Wissensbasis.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Teams / Outlook / Web / externe Daten als Knowledge</td>
+            <td><span class="pill multi">M365 Copilot Agent Builder / Declarative Agent</span></td>
+            <td class="hint">Für einfache, deklarative Agenten innerhalb von M365 Copilot &ndash; Knowledge aus SharePoint, Teams, Outlook, öffentlichen Websites oder externen Daten via M365 Copilot Connectors.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Cross-System, Dataverse, Power Automate, APIs, komplexe Workflows</td>
+            <td><span class="pill">Copilot Studio (full)</span></td>
+            <td class="hint">Richtige Wahl, wenn der Agent über mehrere Systeme arbeitet, Actions ausführt, Dataverse/Power Automate/API-Integrationen benötigt oder produktiv für grössere Zielgruppen bereitgestellt wird.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Autonome oder event-getriggerte Agents</td>
+            <td><span class="pill multi">Copilot Studio / Custom Engine Agent</span></td>
+            <td class="hint">Für automatische Aktionen, Trigger, Agent Flows und komplexe Automatisierungen. Billing und Credits separat gemäss aktueller Microsoft-Dokumentation prüfen.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Externe Website- / App-Kanäle</td>
+            <td><span class="pill">Copilot Studio</span></td>
+            <td class="hint">Wenn der Agent ausserhalb von Microsoft 365 bereitgestellt wird (Websites, Apps, Teams, andere Kanäle). Lizenzierung und Kanalverfügbarkeit separat prüfen.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Eigenes Modell / eigener Orchestrator / eigenes Hosting</td>
+            <td><span class="pill">Custom Engine Agent</span></td>
+            <td class="hint">Wenn eigene Modelle, eigene Orchestrierung oder eigenes Hosting nötig sind. Diese Agents laufen ausserhalb der Standard-M365-Agent-Runtime.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <div class="legend">
+        <span><span class="dot" style="background:#EFF6FC;border:1px solid #CBE3F7;"></span>Empfohlenes Werkzeug</span>
+        <span><span class="dot" style="background:#FFF4CE;"></span>Wichtiger Hinweis / Korrektur</span>
+      </div>
+      <div>Quellen: learn.microsoft.com &middot; support.microsoft.com &nbsp;|&nbsp; Stand: 13.07.2026 &nbsp;|&nbsp; Werte vor Produktivnutzung gegen aktuelle Microsoft-Doku prüfen</div>
+    </footer>
+  </div>
+</body>
+</html>
