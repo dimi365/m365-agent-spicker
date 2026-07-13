@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimi365 · Blog</title>
+  <style>
+    :root { --bg:#f5f4f2; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    .topbar nav{display:flex;gap:14px;font-size:13px}
+    .shell{max-width:900px;margin:0 auto;padding:28px 16px 56px}
+    h1{font-size:32px;font-weight:650;letter-spacing:-0.02em}
+    .lead{margin-top:8px;color:var(--ink-soft)}
+    .list{margin-top:24px;display:grid;gap:10px}
+    .blog{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+    .date{text-align:center;min-width:52px;border-right:1px solid var(--stroke);padding-right:14px}
+    .date b{display:block;font-size:19px;line-height:1.1}
+    .date span{font-size:11px;text-transform:uppercase;color:var(--ink-soft)}
+    .blog h2{font-size:15px}
+    .blog p{font-size:13px;color:var(--ink-soft);margin-top:2px}
+    .tag{font-size:11px;background:#e6f0f9;color:var(--copilot);border-radius:999px;padding:3px 9px;white-space:nowrap}
+    .empty{margin-top:20px;color:var(--ink-soft)}
+    @media(max-width:640px){.blog{grid-template-columns:1fr}.date{text-align:left;border:0;padding:0;display:flex;gap:8px;align-items:baseline}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <strong>Dimi365 · Blog</strong>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../spicker/index.html">Spicker</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <h1>Alle Blogbeitraege</h1>
+    <p class="lead">Neue Markdown-Dateien in content/blog werden automatisch hier angezeigt.</p>
+    <div id="blog-list" class="list"></div>
+    <p id="blog-empty" class="empty" hidden>Noch keine Beitraege gefunden.</p>
+  </main>
+
+  <script src="../assets/js/blog-data.js"></script>
+  <script>
+    (async function () {
+      var listEl = document.getElementById('blog-list');
+      var emptyEl = document.getElementById('blog-empty');
+
+      try {
+        var posts = await window.BlogData.fetchPosts();
+        if (!posts.length) {
+          emptyEl.hidden = false;
+          return;
+        }
+
+        listEl.innerHTML = posts.map(function (post) {
+          return '' +
+            '<a class="blog" href="post.html?slug=' + encodeURIComponent(post.slug) + '">' +
+              '<div class="date"><b>' + window.BlogData.escapeHtml(post.labels.day) + '</b><span>' + window.BlogData.escapeHtml(post.labels.month) + '</span></div>' +
+              '<div><h2>' + window.BlogData.escapeHtml(post.title) + '</h2><p>' + window.BlogData.escapeHtml(post.excerpt) + '</p></div>' +
+              '<span class="tag">' + window.BlogData.escapeHtml(post.tag) + '</span>' +
+            '</a>';
+        }).join('');
+      } catch (err) {
+        emptyEl.hidden = false;
+        emptyEl.textContent = 'Fehler beim Laden der Posts: ' + err.message;
+      }
+    })();
+  </script>
+</body>
+</html>

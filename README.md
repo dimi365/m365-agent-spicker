@@ -1,41 +1,68 @@
-# Microsoft 365 Agent-Spicker
+# Dimi365 Hub (GitHub Pages)
 
-Eine kompakte Entscheidungshilfe (Cheat Sheet), welches Microsoft-Werkzeug für
-welchen Agent-/Copilot-Use-Case geeignet ist – inklusive verifizierter Grenzwerte
-und Hinweise aus der offiziellen Microsoft-Dokumentation.
+Home, Themenseiten und Blog auf GitHub Pages.
+
+## Was ist neu?
+
+- `webapp/index.html`: Hub-Startseite mit Themen-Kacheln und den letzten Blogposts.
+- `webapp/spicker/index.html`: Live Agent-Spicker Seite.
+- `webapp/themen/*.html`: freie Themenseiten als einfache HTML-Placeholders.
+- `webapp/content/blog/*.md`: Blogposts als Markdown.
+- `webapp/blog/index.html`: Blog-Uebersicht (liest Markdown-Posts aus dem Repo).
+- `webapp/blog/post.html`: Detailseite fuer einzelne Posts.
 
 ## Projektstruktur
 
 ```
 m365-agent-spicker/
-├── onepager-standalone/     Schlanke 1-Datei-Version (HTML + CSS inline)
-│   └── index.html           → per Doppelklick öffnen, nichts weiter nötig
-│
-└── webapp/                  Volles Projekt mit getrennter Struktur
-    ├── index.html           → Markup
+└── webapp/
+    ├── index.html
+    ├── assets/
+    │   └── js/
+    │       └── blog-data.js
+    ├── blog/
+    │   ├── index.html
+    │   └── post.html
+    ├── content/
+    │   └── blog/
+    │       ├── 2026-07-12-power-automate-try-catch.md
+    │       └── 2026-07-08-sharepoint-agent-vs-copilot-studio.md
+    ├── spicker/
+    │   └── index.html
+    ├── themen/
+    │   ├── power-automate.html
+    │   ├── dataverse.html
+    │   └── governance-alm.html
     └── css/
-        └── styles.css       → Styles (Fluent-2-inspiriert)
+        └── styles.css
 ```
 
-## Nutzung
+## Content pflegen
 
-### Variante A – Standalone (am einfachsten)
-`onepager-standalone/index.html` doppelklicken → öffnet im Browser.
+### Neue Blogposts
 
-### Variante B – Webapp
-`webapp/index.html` doppelklicken, oder in VS Code mit der Extension
-**Live Server** öffnen (Rechtsklick → *Open with Live Server*) für Auto-Reload
-beim Bearbeiten.
+1. Neue Datei in `webapp/content/blog/` erstellen, z.B. `2026-07-15-mein-post.md`.
+2. Frontmatter verwenden:
 
-### Als PDF exportieren
-Im Browser `Strg + P` → Ziel **Als PDF speichern** → Layout **Querformat**
-(das CSS ist bereits auf A4 quer optimiert).
+```md
+---
+title: Mein Titel
+date: 2026-07-15
+tag: Copilot Studio
+excerpt: Kurzer Teasertext
+---
 
-## Inhaltliche Hinweise
+Inhalt in Markdown...
+```
 
-- Werte (Limits, Lizenzanforderungen) sind Stand **13.07.2026** und sollten vor
-  Produktivnutzung gegen die aktuelle Microsoft-Dokumentation geprüft werden.
-- Quellen: `learn.microsoft.com`, `support.microsoft.com`.
-- Korrigiert gegenüber der ersten Fassung: SharePoint Agents nutzen laut
-  offizieller FAQ aktuell **keine** Daten aus Listen – List-Knowledge läuft über
-  Copilot Studio.
+3. Commit + Push auf `main`: der Post erscheint automatisch auf Home und Blog.
+
+### Neue Themenseiten
+
+1. Neue HTML-Datei in `webapp/themen/` anlegen.
+2. Auf `webapp/index.html` als Kachel verlinken.
+
+## Deployment
+
+- Deployment laeuft via `.github/workflows/deploy-pages.yml`.
+- GitHub Pages liefert direkt den Inhalt aus `webapp/` aus.
