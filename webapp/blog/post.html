@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dimi365 · Blog Post</title>
   <style>
-    :root { --bg:#f5f4f2; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
+    :root { --bg:#f3f2ef; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
-    .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:10}
+    .topbar nav{display:flex;gap:14px;font-size:13px}
+    .topbar nav a{color:#fff;text-decoration:none}
+    .topnav{background:#ffffffd9;backdrop-filter:blur(5px);border-bottom:1px solid var(--stroke);position:sticky;top:56px;z-index:9}
+    .topnav .wrap{max-width:900px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;overflow:auto}
+    .nav-link{font-size:13px;font-weight:600;color:#3f3b47;border:1px solid var(--stroke);background:#fff;border-radius:999px;padding:6px 12px;white-space:nowrap;text-decoration:none}
+    .nav-link.active{background:#f3eaff;border-color:#d7c0ef;color:#4e2372}
     .shell{max-width:900px;margin:0 auto;padding:28px 16px 56px}
-    .card{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .card{background:var(--surface);border:1px solid var(--stroke);border-radius:12px;box-shadow:var(--shadow);padding:24px}
     .meta{color:var(--ink-soft);font-size:13px;margin-top:8px}
     .content{margin-top:18px}
     .content h1,.content h2,.content h3{line-height:1.25;margin:1.2em 0 .45em}
@@ -20,13 +26,27 @@
     .content pre{background:#1f1f1f;color:#f1f1f1;padding:12px;border-radius:8px;overflow:auto}
     .back{display:inline-block;margin-bottom:14px;color:var(--copilot);font-weight:600;text-decoration:none}
     .error{color:#b3261e}
+    @media(max-width:640px){.topbar{height:auto;min-height:56px;padding:8px 12px;gap:8px}.topnav{top:72px}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <strong>Dimi365 · Blog</strong>
-    <nav><a href="index.html" style="color:#fff;text-decoration:none">Zur Uebersicht</a></nav>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Zur Uebersicht</a>
+      <a href="../spicker/index.html">Spicker</a>
+    </nav>
   </header>
+
+  <nav class="topnav" aria-label="Hauptnavigation">
+    <div class="wrap">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="index.html">Blog</a>
+      <a class="nav-link" href="../spicker/index.html">Spicker</a>
+      <a class="nav-link" href="../themen/power-automate.html">Themen</a>
+    </div>
+  </nav>
 
   <main class="shell">
     <a class="back" href="index.html">← Zurueck zu allen Beitraegen</a>

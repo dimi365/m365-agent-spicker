@@ -6,7 +6,7 @@
 <title>Dimi365 · Home</title>
 <style>
   :root{
-    --bg:#f5f4f2;
+    --bg:#f3f2ef;
     --surface:#ffffff;
     --ink:#242424;
     --ink-soft:#616161;
@@ -21,6 +21,7 @@
     --radius:8px;
     --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);
     --shadow-hover:0 6.4px 14.4px rgba(0,0,0,.11),0 1.2px 3.6px rgba(0,0,0,.08);
+    --hero-wash:linear-gradient(125deg,#f8ecff 0%,#f3f5ff 44%,#ecf6ff 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{
@@ -31,12 +32,12 @@
 
   .topbar{
     background:linear-gradient(90deg,var(--brand-deep) 0%,#5b2160 55%,#742774 100%);
-    color:#fff;height:48px;display:flex;align-items:center;gap:14px;
+    color:#fff;height:56px;display:flex;align-items:center;gap:14px;
     padding:0 16px;position:sticky;top:0;z-index:10;
   }
   .waffle{display:grid;grid-template-columns:repeat(3,4px);grid-template-rows:repeat(3,4px);gap:2.5px;cursor:pointer}
   .waffle span{background:#fff;border-radius:1px;width:4px;height:4px}
-  .topbar .title{font-size:15px;font-weight:600;letter-spacing:.2px}
+  .topbar .title{font-size:15px;font-weight:620;letter-spacing:.2px}
   .topbar .env{
     margin-left:auto;font-size:12px;background:rgba(255,255,255,.14);
     border:1px solid rgba(255,255,255,.25);padding:3px 10px;border-radius:4px;
@@ -44,13 +45,38 @@
   .avatar{width:28px;height:28px;border-radius:50%;background:var(--bi);color:#3b1a53;
     display:grid;place-items:center;font-size:12px;font-weight:700}
 
+  .topnav{
+    background:#ffffffd9;
+    backdrop-filter:blur(5px);
+    border-bottom:1px solid var(--stroke);
+    position:sticky;
+    top:56px;
+    z-index:9;
+  }
+  .topnav .wrap{max-width:1060px;margin:0 auto;padding:10px 20px;display:flex;gap:10px;overflow:auto}
+  .nav-link{
+    font-size:13px;
+    font-weight:600;
+    color:#3f3b47;
+    border:1px solid var(--stroke);
+    background:#fff;
+    border-radius:999px;
+    padding:6px 12px;
+    white-space:nowrap;
+  }
+  .nav-link.active{background:#f3eaff;border-color:#d7c0ef;color:#4e2372}
+
   .shell{max-width:1060px;margin:0 auto;padding:32px 20px 64px}
 
-  .hero{margin:8px 0 36px}
+  .hero{margin:8px 0 36px;background:var(--hero-wash);border:1px solid #e7def0;border-radius:16px;padding:26px 24px;box-shadow:var(--shadow)}
   .hero .eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
   .hero h1{font-family:"Segoe UI Variable Display","Segoe UI",sans-serif;
     font-size:clamp(28px,4.5vw,40px);font-weight:650;letter-spacing:-.01em;margin-top:4px}
   .hero p{color:var(--ink-soft);max-width:56ch;margin-top:8px;font-size:15px}
+  .hero-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .cta{font-size:13px;font-weight:600;border-radius:999px;padding:8px 14px;display:inline-block}
+  .cta.primary{background:#4e2372;color:#fff;border:1px solid #4e2372}
+  .cta.secondary{background:#fff;color:#4e2372;border:1px solid #cdb8e0}
 
   section{margin-top:40px}
   .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
@@ -100,10 +126,14 @@
   .tag.default{background:#edeaf2;color:#4d346b}
 
   .status{font-size:13px;color:var(--ink-soft)}
+  .helper-note{margin-top:14px;font-size:12px;color:#6b6771}
   footer{margin-top:56px;font-size:12px;color:var(--ink-soft);text-align:center}
 
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
   @media (max-width:560px){
+    .topbar{height:auto;min-height:56px;flex-wrap:wrap;padding:8px 12px}
+    .topbar .env{order:3;margin-left:0}
+    .topnav{top:72px}
     .blog{grid-template-columns:1fr;gap:6px}
     .blog .date{display:flex;gap:6px;border:0;padding:0;min-width:0;text-align:left;align-items:baseline}
   }
@@ -121,12 +151,25 @@
   <div class="avatar">DM</div>
 </header>
 
+<nav class="topnav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="nav-link active" href="index.html">Home</a>
+    <a class="nav-link" href="blog/index.html">Blog</a>
+    <a class="nav-link" href="spicker/index.html">Spicker</a>
+    <a class="nav-link" href="themen/power-automate.html">Themen</a>
+  </div>
+</nav>
+
 <main class="shell">
 
   <div class="hero">
     <div class="eyebrow">Home</div>
     <h1>Willkommen zurueck</h1>
     <p>Notizen, Spicker und Blogposts rund um Power Platform, Copilot Studio und Governance — kompakt, verifiziert und ohne Marketing-Nebel.</p>
+    <div class="hero-actions">
+      <a class="cta primary" href="spicker/index.html">Zum Agent-Spicker</a>
+      <a class="cta secondary" href="blog/index.html">Neueste Blogposts lesen</a>
+    </div>
   </div>
 
   <section aria-label="Themen">
@@ -169,6 +212,7 @@
     </div>
     <div id="blogs" class="blogs"></div>
     <p id="blogs-status" class="status">Lade Blogposts...</p>
+    <p class="helper-note">Tipp: Neue Markdown-Datei in <strong>webapp/content/blog</strong> anlegen, committen und sie erscheint automatisch.</p>
   </section>
 
   <footer>Dimi365 · Zuerich · Inhalte vor Produktivnutzung gegen aktuelle Microsoft-Doku pruefen.</footer>

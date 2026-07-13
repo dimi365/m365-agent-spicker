@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dimi365 · Blog</title>
   <style>
-    :root { --bg:#f5f4f2; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
+    :root { --bg:#f3f2ef; --surface:#fff; --ink:#242424; --ink-soft:#616161; --stroke:#e3e1de; --brand:#742774; --copilot:#0f6cbd; --radius:8px; --shadow:0 1.6px 3.6px rgba(0,0,0,.08),0 0.3px 0.9px rgba(0,0,0,.06);} 
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
     a{color:inherit;text-decoration:none}
-    .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    .topbar{background:linear-gradient(90deg,#3b1a53 0%,#5b2160 55%,#742774 100%);color:#fff;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:10}
     .topbar nav{display:flex;gap:14px;font-size:13px}
+    .topbar nav a{color:#fff}
+    .topnav{background:#ffffffd9;backdrop-filter:blur(5px);border-bottom:1px solid var(--stroke);position:sticky;top:56px;z-index:9}
+    .topnav .wrap{max-width:900px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;overflow:auto}
+    .nav-link{font-size:13px;font-weight:600;color:#3f3b47;border:1px solid var(--stroke);background:#fff;border-radius:999px;padding:6px 12px;white-space:nowrap}
+    .nav-link.active{background:#f3eaff;border-color:#d7c0ef;color:#4e2372}
     .shell{max-width:900px;margin:0 auto;padding:28px 16px 56px}
+    .hero{background:linear-gradient(125deg,#f8ecff 0%,#f3f5ff 44%,#ecf6ff 100%);border:1px solid #e7def0;border-radius:16px;padding:22px 20px;box-shadow:var(--shadow)}
     h1{font-size:32px;font-weight:650;letter-spacing:-0.02em}
     .lead{margin-top:8px;color:var(--ink-soft)}
     .list{margin-top:24px;display:grid;gap:10px}
-    .blog{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+    .blog{background:var(--surface);border:1px solid var(--stroke);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;transition:box-shadow .15s,transform .15s}
+    .blog:hover{box-shadow:0 6px 14px rgba(0,0,0,.1);transform:translateY(-1px)}
     .date{text-align:center;min-width:52px;border-right:1px solid var(--stroke);padding-right:14px}
     .date b{display:block;font-size:19px;line-height:1.1}
     .date span{font-size:11px;text-transform:uppercase;color:var(--ink-soft)}
@@ -23,7 +30,7 @@
     .blog p{font-size:13px;color:var(--ink-soft);margin-top:2px}
     .tag{font-size:11px;background:#e6f0f9;color:var(--copilot);border-radius:999px;padding:3px 9px;white-space:nowrap}
     .empty{margin-top:20px;color:var(--ink-soft)}
-    @media(max-width:640px){.blog{grid-template-columns:1fr}.date{text-align:left;border:0;padding:0;display:flex;gap:8px;align-items:baseline}}
+    @media(max-width:640px){.topbar{height:auto;min-height:56px;padding:8px 12px;gap:8px}.topnav{top:72px}.blog{grid-template-columns:1fr}.date{text-align:left;border:0;padding:0;display:flex;gap:8px;align-items:baseline}}
   </style>
 </head>
 <body>
@@ -35,9 +42,20 @@
     </nav>
   </header>
 
+  <nav class="topnav" aria-label="Hauptnavigation">
+    <div class="wrap">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="index.html">Blog</a>
+      <a class="nav-link" href="../spicker/index.html">Spicker</a>
+      <a class="nav-link" href="../themen/power-automate.html">Themen</a>
+    </div>
+  </nav>
+
   <main class="shell">
-    <h1>Alle Blogbeitraege</h1>
-    <p class="lead">Neue Markdown-Dateien in content/blog werden automatisch hier angezeigt.</p>
+    <section class="hero" aria-label="Blog-Einfuehrung">
+      <h1>Alle Blogbeitraege</h1>
+      <p class="lead">Neue Markdown-Dateien in content/blog werden automatisch hier angezeigt.</p>
+    </section>
     <div id="blog-list" class="list"></div>
     <p id="blog-empty" class="empty" hidden>Noch keine Beitraege gefunden.</p>
   </main>
