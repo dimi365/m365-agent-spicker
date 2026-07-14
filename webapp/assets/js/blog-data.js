@@ -3,7 +3,7 @@
 
   var BLOG_PATH = "webapp/content/blog";
   var OWNER = "dimi365";
-  var REPO = "m365-agent-spicker";
+  var REPO = "dimi365.github.io";
   var BRANCH = "main";
 
   function getRepoConfig() {
@@ -13,8 +13,19 @@
     if (host.endsWith("github.io")) {
       OWNER = host.split(".")[0] || OWNER;
       var parts = path.split("/").filter(Boolean);
-      if (parts.length > 0) {
+      // App-Segmente die Pfad-Teile sind, kein Projekt-Repo-Name
+      var appSegments = ["blog", "spicker", "themen", "assets", "content", "css"];
+      
+      if (
+        parts.length > 0 &&
+        parts[0].indexOf(".html") === -1 &&
+        appSegments.indexOf(parts[0]) === -1
+      ) {
+        // Projekt-Seite: https://owner.github.io/<repo>/...
         REPO = parts[0];
+      } else {
+        // User-Seite: https://owner.github.io/...  → Repo = Host
+        REPO = host;
       }
     }
 
