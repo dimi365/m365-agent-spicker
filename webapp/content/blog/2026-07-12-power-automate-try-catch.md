@@ -13,7 +13,7 @@ Mit einem klaren **Try/Catch**-Pattern in Scopes trennst du Fachlogik von Fehler
 
 1. Scope `Try` mit eigentlicher Fachlogik
 2. Scope `Catch` mit `run after` auf `has failed`, `has timed out`, `has skipped`
-3. Fehlertext mit `coalesce(...)` fuer Notification oder Logging
+3. Fehlertext mit `coalesce(...)` für Notification oder Logging
 
 ```text
 coalesce(outputs('HTTP')?['body/error/message'], outputs('HTTP')?['body/message'], 'Unbekannter Fehler')

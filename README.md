@@ -9,7 +9,7 @@ Home, Themenseiten und Blog auf GitHub Pages.
 - `webapp/themen/*.html`: freie Themenseiten als einfache HTML-Placeholders.
 - `webapp/content/blog/*.md`: Blogposts als Markdown.
 - `webapp/blog/index.html`: Blog-Uebersicht (liest Markdown-Posts aus dem Repo).
-- `webapp/blog/post.html`: Detailseite fuer einzelne Posts.
+- `webapp/blog/post.html`: Detailseite für einzelne Posts.
 
 ## Projektstruktur
 

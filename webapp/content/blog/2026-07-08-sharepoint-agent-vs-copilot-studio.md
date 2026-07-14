@@ -2,7 +2,7 @@
 title: SharePoint Agent vs Copilot Studio - Kurzvergleich
 date: 2026-07-08
 tag: Copilot Studio
-excerpt: Zweiter Platzhalter-Post fuer den automatischen Blog-Feed.
+excerpt: Zweiter Platzhalter-Post für den automatischen Blog-Feed.
 ---
 
 ## Kurzvergleich
