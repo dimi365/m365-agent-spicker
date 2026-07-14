@@ -54,12 +54,12 @@
           <tr>
             <td class="usecase">Nur Web-Recherche, Drafting &ndash; keine Work-/Tenant-Daten</td>
             <td><span class="pill">M365 Copilot Chat (ohne Lizenz)</span></td>
-            <td class="hint">Geeignet für oeffentliche Web-Recherche und Drafting. für Work-/Graph-Grounding oder Zugriff auf Tenant-Daten braucht es eine M365-Copilot-Lizenz oder eine PAYG-/Agent-Konfiguration.</td>
+            <td class="hint">Geeignet für öffentliche Web-Recherche und Drafting. Für Work-/Graph-Grounding oder Zugriff auf Tenant-Daten braucht es eine M365-Copilot-Lizenz oder eine PAYG-/Agent-Konfiguration.</td>
           </tr>
           <tr>
             <td class="usecase">Tiefe Web-/Work-Recherche mit Microsoft Researcher</td>
             <td><span class="pill">Researcher-Agent / M365 Copilot</span></td>
-            <td class="hint">Researcher ist eine Capability innerhalb von Microsoft 365 Copilot. Sichtbarkeit haengt von Lizenzierung, Rollout und Admin-Konfiguration ab.</td>
+            <td class="hint">Researcher ist eine Capability innerhalb von Microsoft 365 Copilot. Sichtbarkeit hängt von Lizenzierung, Rollout und Admin-Konfiguration ab.</td>
           </tr>
           <tr>
             <td class="usecase">Copilot direkt auf SharePoint-Site / Dokumenten-Q&amp;A</td>
@@ -69,62 +69,62 @@
           <tr>
             <td class="usecase">SharePoint-Agent mit eigener Quellen-Auswahl</td>
             <td><span class="pill">SharePoint Agent (custom)</span></td>
-            <td class="hint">Bis zu <strong>20 Source Items</strong> (Sites, Dokumentbibliotheken, Ordner oder Dateien). Bei mehr als 20 Quellen hoeheres Nesting nutzen &ndash; ganze Site/Library statt einzelner Dateien.</td>
+            <td class="hint">Bis zu <strong>20 Source Items</strong> (Sites, Dokumentbibliotheken, Ordner oder Dateien). Bei mehr als 20 Quellen höheres Nesting nutzen &ndash; ganze Site/Library statt einzelner Dateien.</td>
           </tr>
           <tr>
-            <td class="usecase">Mehrere Sites / groessere Wissensbasis / viele Knowledge Sources</td>
+            <td class="usecase">Mehrere Sites / grössere Wissensbasis / viele Knowledge Sources</td>
             <td><span class="pill">Copilot Studio</span></td>
-            <td class="hint">Bis zu <strong>500 Knowledge Sources</strong> pro Agent ueber alle Typen hinweg.</td>
+            <td class="hint">Bis zu <strong>500 Knowledge Sources</strong> pro Agent über alle Typen hinweg.</td>
           </tr>
           <tr>
             <td class="usecase">Eine einzelne SharePoint-/Microsoft-Liste als Knowledge Source</td>
             <td><span class="pill multi">Copilot Studio <span class="tag">nicht SharePoint Agent</span></span></td>
-            <td class="hint"><span class="correction">Hinweis:</span> SharePoint Agents nutzen gemaess offizieller Microsoft-FAQ aktuell <strong>keine</strong> Daten aus Listen. Auch für eine einzelne Liste muss Copilot Studio verwendet werden.</td>
+            <td class="hint"><span class="correction">Anmerkung:</span> SharePoint Agents nutzen gemäss offizieller Microsoft-FAQ aktuell <strong>keine</strong> Daten aus Listen. Auch für eine einzelne Liste muss Copilot Studio verwendet werden.</td>
           </tr>
           <tr>
             <td class="usecase">Mehrere SharePoint-Listen</td>
             <td><span class="pill">Copilot Studio</span></td>
-            <td class="hint">Bis zu <strong>15 Listen</strong> pro Agent (empfohlen max. 10). Max. <strong>35'000 Rows pro Liste</strong> und insgesamt max. <strong>120'000 Rows</strong>; groessere Listen beeintraechtigen Qualitaet und Latenz.</td>
+            <td class="hint">Bis zu <strong>15 Listen</strong> pro Agent (empfohlen max. 10). Max. <strong>35&rsquo;000 Rows pro Liste</strong> und insgesamt max. <strong>120&rsquo;000 Rows</strong>; grössere Listen beeinträchtigen Qualität und Latenz.</td>
           </tr>
           <tr>
-            <td class="usecase">Analytische Fragen ueber strukturierte Listendaten</td>
+            <td class="usecase">Analytische Fragen über strukturierte Listendaten</td>
             <td><span class="pill multi">Copilot Studio + SharePoint Lists Knowledge</span></td>
-            <td class="hint">Geeignet für Durchschnittswerte, Aggregationen, Counts oder strukturierte Abfragen. <span class="tag">Hinweis</span> List-Abfragen beruecksichtigen nur die ersten <strong>2'048 Zeilen</strong> und Agenten koennen keinen Code ausfuehren &ndash; bei grossen Listen koennen Antworten ungenau sein.</td>
+            <td class="hint">Geeignet für Durchschnittswerte, Aggregationen, Counts oder strukturierte Abfragen. <span class="tag">Hinweis</span> List-Abfragen berücksichtigen nur die ersten <strong>2&rsquo;048 Zeilen</strong> und Agenten können keinen Code ausführen &ndash; bei grossen Listen können Antworten ungenau sein.</td>
           </tr>
           <tr>
             <td class="usecase">Filtern, OData-Abfragen, gezielte Queries, Schreiben in Listen/Systeme</td>
             <td><span class="pill multi">Copilot Studio + Actions / Agent Flow / Power Automate / Connector</span></td>
-            <td class="hint">für gezielte Abfragen, Business-Logik, Writebacks oder CRUD-Szenarien Actions, Agent Flows, Power Automate oder Connectoren nutzen. Knowledge Sources allein sind dafür nicht der richtige Mechanismus.</td>
+            <td class="hint">Für gezielte Abfragen, Business-Logik, Writebacks oder CRUD-Szenarien Actions, Agent Flows, Power Automate oder Connectors nutzen. Knowledge Sources allein sind dafür nicht der richtige Mechanismus.</td>
           </tr>
           <tr>
-            <td class="usecase">Persoenliche Files/Folders</td>
+            <td class="usecase">Persönliche Files/Folders</td>
             <td><span class="pill">OneDrive Agent</span></td>
-            <td class="hint">für persoenliche Dateien und Ordner in OneDrive. Der Agent wird als <code>.agent</code> gespeichert und nutzt die ausgewaehlten Files/Folders als Wissensbasis.</td>
+            <td class="hint">Für persönliche Dateien und Ordner in OneDrive. Der Agent wird als <code>.agent</code> gespeichert und nutzt die ausgewählten Files/Folders als Wissensbasis.</td>
           </tr>
           <tr>
             <td class="usecase">Teams / Outlook / Web / externe Daten als Knowledge</td>
             <td><span class="pill multi">M365 Copilot Agent Builder / Declarative Agent</span></td>
-            <td class="hint">für einfache, deklarative Agenten innerhalb von M365 Copilot &ndash; Knowledge aus SharePoint, Teams, Outlook, oeffentlichen Websites oder externen Daten via M365 Copilot Connectors.</td>
+            <td class="hint">Für einfache, deklarative Agenten innerhalb von M365 Copilot &ndash; Knowledge aus SharePoint, Teams, Outlook, öffentlichen Websites oder externen Daten via M365 Copilot Connectors.</td>
           </tr>
           <tr>
             <td class="usecase">Cross-System, Dataverse, Power Automate, APIs, komplexe Workflows</td>
             <td><span class="pill">Copilot Studio (full)</span></td>
-            <td class="hint">Richtige Wahl, wenn der Agent ueber mehrere Systeme arbeitet, Actions ausfuehrt, Dataverse/Power Automate/API-Integrationen benoetigt oder produktiv für groessere Zielgruppen bereitgestellt wird.</td>
+            <td class="hint">Richtige Wahl, wenn der Agent über mehrere Systeme arbeitet, Actions ausführt, Dataverse/Power Automate/API-Integrationen benötigt oder produktiv für grössere Zielgruppen bereitgestellt wird.</td>
           </tr>
           <tr>
             <td class="usecase">Autonome oder event-getriggerte Agents</td>
             <td><span class="pill multi">Copilot Studio / Custom Engine Agent</span></td>
-            <td class="hint">für automatische Aktionen, Trigger, Agent Flows und komplexe Automatisierungen. Billing und Credits separat gemaess aktueller Microsoft-Dokumentation pruefen.</td>
+            <td class="hint">Für automatische Aktionen, Trigger, Agent Flows und komplexe Automatisierungen. Billing und Credits separat gemäss aktueller Microsoft-Dokumentation prüfen.</td>
           </tr>
           <tr>
-            <td class="usecase">Externe Website- / App-Kanaele</td>
+            <td class="usecase">Externe Website- / App-Kanäle</td>
             <td><span class="pill">Copilot Studio</span></td>
-            <td class="hint">Wenn der Agent ausserhalb von Microsoft 365 bereitgestellt wird (Websites, Apps, Teams, andere Kanaele). Lizenzierung und Kanalverfuegbarkeit separat pruefen.</td>
+            <td class="hint">Wenn der Agent ausserhalb von Microsoft 365 bereitgestellt wird (Websites, Apps, Teams, andere Kanäle). Lizenzierung und Kanalverfügbarkeit separat prüfen.</td>
           </tr>
           <tr>
             <td class="usecase">Eigenes Modell / eigener Orchestrator / eigenes Hosting</td>
             <td><span class="pill">Custom Engine Agent</span></td>
-            <td class="hint">Wenn eigene Modelle, eigene Orchestrierung oder eigenes Hosting noetig sind. Diese Agents laufen ausserhalb der Standard-M365-Agent-Runtime.</td>
+            <td class="hint">Wenn eigene Modelle, eigene Orchestrierung oder eigenes Hosting nötig sind. Diese Agents laufen ausserhalb der Standard-M365-Agent-Runtime.</td>
           </tr>
         </tbody>
       </table>
@@ -135,7 +135,7 @@
         <span><span class="dot" style="background:#EFF6FC;border:1px solid #CBE3F7;"></span>Empfohlenes Werkzeug</span>
         <span><span class="dot" style="background:#FFF4CE;"></span>Wichtiger Hinweis / Korrektur</span>
       </div>
-      <div>Quellen: learn.microsoft.com &middot; support.microsoft.com &nbsp;|&nbsp; Stand: 13.07.2026 &nbsp;|&nbsp; Werte vor Produktivnutzung gegen aktuelle Microsoft-Doku pruefen</div>
+      <div>Quellen: learn.microsoft.com &middot; support.microsoft.com &nbsp;|&nbsp; Stand: 14.07.2026 &nbsp;|&nbsp; Werte vor Produktivnutzung gegen aktuelle Microsoft-Doku prüfen</div>
     </footer>
   </div>
 </body>
