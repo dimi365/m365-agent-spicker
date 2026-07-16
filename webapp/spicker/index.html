@@ -37,7 +37,7 @@
       <div class="logo"><span></span><span></span><span></span><span></span></div>
       <div>
         <h1>Microsoft 365 Agent-Spicker</h1>
-        <p>Welches Werkzeug für welchen Use Case &mdash; verifizierte Grenzen &amp; Hinweise</p>
+        <p>Welches Werkzeug für welchen Use Case &mdash; verifizierte Grenzen, Hinweise &amp; End-User-Lizenz</p>
       </div>
     </header>
 
@@ -47,6 +47,7 @@
           <tr>
             <th>Use Case</th>
             <th>Empfohlenes Werkzeug</th>
+            <th>End-User-Lizenz</th>
             <th>Verifizierte Grenze / Hinweis</th>
           </tr>
         </thead>
@@ -54,76 +55,97 @@
           <tr>
             <td class="usecase">Nur Web-Recherche, Drafting &ndash; keine Work-/Tenant-Daten</td>
             <td><span class="pill">M365 Copilot Chat (ohne Lizenz)</span></td>
-            <td class="hint">Geeignet für öffentliche Web-Recherche und Drafting. Für Work-/Graph-Grounding oder Zugriff auf Tenant-Daten braucht es eine M365-Copilot-Lizenz oder eine PAYG-/Agent-Konfiguration.</td>
+            <td class="lic"><span class="license-badge license-free">Keine Zusatzlizenz</span><br>Eligible M365-/O365-Abo mit Entra-Anmeldung genügt (web-grounded).</td>
+            <td class="hint">Geeignet für öffentliche Web-Recherche und Drafting. Kein Zugriff auf Work-/Graph-Daten. <span class="tag">Achtung</span> Seit 15.04.2026 in Tenants &gt;2&rsquo;000 Seats kein Copilot Chat mehr in Word/Excel/PPT/OneNote für unlizenzierte User &ndash; nur noch M365-Copilot-App, Web und Outlook.</td>
+          </tr>
+          <tr>
+            <td class="usecase">Persönliches Work-Grounding: &laquo;Schau in meinen letzten Mails nach&raquo; &ndash; eigene Mails, Kalender, OneDrive, Meetings</td>
+            <td><span class="pill">M365 Copilot (Work-Tab / Office-Apps)</span></td>
+            <td class="lic"><span class="license-badge license-required">M365 Copilot Lizenz zwingend</span><br><strong>Nicht</strong> über PAYG oder Credits abbildbar.</td>
+            <td class="hint"><span class="correction">Verifiziert 2026:</span> Ohne User-Lizenz kann Copilot Chat weder auf individuelle Daten noch auf shared Enterprise-Daten oder Graph-Connector-Daten zugreifen. Metered Billing (Credits/PAYG) deckt nur Agents auf <strong>vordefinierten, geteilten</strong> Quellen ab &ndash; nie das persönliche Graph-Grounding. Workaround: Files manuell in den Chat hochladen. Ausnahme lt. Community-Berichten: Copilot Chat in Outlook behält Inbox-/Kalender-Grounding für unlizenzierte User &ndash; vor Zusage im Tenant verifizieren.</td>
           </tr>
           <tr>
             <td class="usecase">Tiefe Web-/Work-Recherche mit Microsoft Researcher</td>
             <td><span class="pill">Researcher-Agent / M365 Copilot</span></td>
+            <td class="lic"><span class="license-badge license-required">M365 Copilot Lizenz</span><br>Nativer Agent (wie Analyst, Facilitator): für Lizenzierte ohne Zusatz-Credits, für Unlizenzierte nicht via Credits freischaltbar.</td>
             <td class="hint">Researcher ist eine Capability innerhalb von Microsoft 365 Copilot. Sichtbarkeit hängt von Lizenzierung, Rollout und Admin-Konfiguration ab.</td>
           </tr>
           <tr>
             <td class="usecase">Copilot direkt auf SharePoint-Site / Dokumenten-Q&amp;A</td>
             <td><span class="pill">SharePoint Agent (ready-made)</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>M365 Copilot (zero-rated) oder PAYG/Capacity Packs des Tenants.</td>
             <td class="hint">Jede SharePoint-Site hat einen ready-made Agent auf Basis der Site-Inhalte. Nutzung erfordert M365 Copilot Lizenz oder aktivierten Pay-as-you-go-Service.</td>
           </tr>
           <tr>
             <td class="usecase">SharePoint-Agent mit eigener Quellen-Auswahl</td>
             <td><span class="pill">SharePoint Agent (custom)</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>Wie ready-made: M365 Copilot oder PAYG/Packs.</td>
             <td class="hint">Bis zu <strong>20 Source Items</strong> (Sites, Dokumentbibliotheken, Ordner oder Dateien). Bei mehr als 20 Quellen höheres Nesting nutzen &ndash; ganze Site/Library statt einzelner Dateien.</td>
           </tr>
           <tr>
             <td class="usecase">Mehrere Sites / grössere Wissensbasis / viele Knowledge Sources</td>
             <td><span class="pill">Copilot Studio</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>Intern in M365-Kanälen zero-rated für Lizenzierte; sonst Tenant-Credits (Packs/PAYG).</td>
             <td class="hint">Bis zu <strong>500 Knowledge Sources</strong> pro Agent über alle Typen hinweg.</td>
           </tr>
           <tr>
             <td class="usecase">Eine einzelne SharePoint-/Microsoft-Liste als Knowledge Source</td>
             <td><span class="pill multi">SharePoint-/OneDrive-Agent (1 Liste) <span class="tag">oder Copilot Studio</span></span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>M365 Copilot Lizenz oder PAYG.</td>
             <td class="hint"><span class="correction">Update 2026:</span> Seit dem Rollout (Ende März&ndash;Mai 2026) können SharePoint-/OneDrive-Custom-Agents eine <strong>einzelne</strong> Microsoft-Liste als Knowledge Source nutzen &ndash; max. <strong>1 Liste pro Agent</strong>, ersetzt alle anderen Quellen, benötigt M365-Copilot-Lizenz oder PAYG. Site-basierte Agents grounden weiterhin nur auf Dokumentbibliotheken/Pages, <strong>nicht</strong> auf Listen. Für mehrere Listen &rarr; Copilot Studio (bis 15).</td>
           </tr>
           <tr>
             <td class="usecase">Mehrere SharePoint-Listen</td>
             <td><span class="pill">Copilot Studio</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>Graph/Tenant Grounding zero-rated für Lizenzierte in M365-Kanälen; sonst Credits.</td>
             <td class="hint">Bis zu <strong>15 Listen</strong> pro Agent (empfohlen max. 10). Max. <strong>35&rsquo;000 Rows pro Liste</strong> und insgesamt max. <strong>120&rsquo;000 Rows</strong>; grössere Listen beeinträchtigen Qualität und Latenz.</td>
           </tr>
           <tr>
             <td class="usecase">Analytische Fragen über strukturierte Listendaten</td>
             <td><span class="pill multi">Copilot Studio + SharePoint Lists Knowledge</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>Wie Copilot-Studio-Knowledge: zero-rated mit Lizenz, sonst Credits.</td>
             <td class="hint">Geeignet für Durchschnittswerte, Aggregationen, Counts oder strukturierte Abfragen. <span class="tag">Hinweis</span> List-Abfragen berücksichtigen nur die ersten <strong>2&rsquo;048 Zeilen</strong> und Agenten können keinen Code ausführen &ndash; bei grossen Listen können Antworten ungenau sein.</td>
           </tr>
           <tr>
             <td class="usecase">Filtern, OData-Abfragen, gezielte Queries, Schreiben in Listen/Systeme</td>
             <td><span class="pill multi">Copilot Studio + Actions / Agent Flow / Power Automate / Connector</span></td>
+            <td class="lic"><span class="license-badge license-credits">Credits (auch mit Lizenz)</span><br>Agent Flows sind <strong>nicht</strong> zero-rated (13 Credits/100 Actions); zero-rating deckt nur classic/generative Answers &amp; Graph Grounding ab. Klassische Power-Automate-Flows laufen über Power-Automate-Lizenzen, nicht über Credits.</td>
             <td class="hint">Für gezielte Abfragen, Business-Logik, Writebacks oder CRUD-Szenarien Actions, Agent Flows, Power Automate oder Connectors nutzen. Knowledge Sources allein sind dafür nicht der richtige Mechanismus.</td>
           </tr>
           <tr>
             <td class="usecase">Persönliche Files/Folders</td>
             <td><span class="pill">OneDrive Agent</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>Wie SharePoint Agents: M365 Copilot oder PAYG.</td>
             <td class="hint">Für persönliche Dateien und Ordner in OneDrive. Der Agent wird als <code>.agent</code> gespeichert und nutzt die ausgewählten Files/Folders als Wissensbasis.</td>
           </tr>
           <tr>
             <td class="usecase">Teams / Outlook / Web / externe Daten als Knowledge</td>
             <td><span class="pill multi">M365 Copilot Agent Builder / Declarative Agent</span></td>
+            <td class="lic"><span class="license-badge license-choice">Gratis bis Credits</span><br>Nur Instructions + öffentliches Web: gratis für Copilot-Chat-User. Mit Tenant-Daten (SharePoint, Connectors): M365 Copilot oder Credits.</td>
             <td class="hint">Für einfache, deklarative Agenten innerhalb von M365 Copilot &ndash; Knowledge aus SharePoint, Teams, Outlook, öffentlichen Websites oder externen Daten via M365 Copilot Connectors.</td>
           </tr>
           <tr>
             <td class="usecase">Cross-System, Dataverse, Power Automate, APIs, komplexe Workflows</td>
             <td><span class="pill">Copilot Studio (full)</span></td>
+            <td class="lic"><span class="license-badge license-choice">Lizenz oder Credits</span><br>End-User intern zero-rated mit M365 Copilot, sonst Credits. Maker: Copilot Studio User License (gratis) + Tenant-Kapazität (Packs/PAYG) nötig.</td>
             <td class="hint">Richtige Wahl, wenn der Agent über mehrere Systeme arbeitet, Actions ausführt, Dataverse/Power Automate/API-Integrationen benötigt oder produktiv für grössere Zielgruppen bereitgestellt wird.</td>
           </tr>
           <tr>
             <td class="usecase">Autonome oder event-getriggerte Agents</td>
             <td><span class="pill multi">Copilot Studio / Custom Engine Agent</span></td>
+            <td class="lic"><span class="license-badge license-credits">Credits immer</span><br>Autonome Runs sind nie zero-rated &ndash; auch nicht für M365-Copilot-Lizenzierte.</td>
             <td class="hint">Für automatische Aktionen, Trigger, Agent Flows und komplexe Automatisierungen. Billing und Credits separat gemäss aktueller Microsoft-Dokumentation prüfen.</td>
           </tr>
           <tr>
             <td class="usecase">Externe Website- / App-Kanäle</td>
             <td><span class="pill">Copilot Studio</span></td>
+            <td class="lic"><span class="license-badge license-credits">Credits immer</span><br>Zero-rating gilt nur in M365-Kanälen (Copilot Chat, Teams, SharePoint) &ndash; Web-/App-Kanäle laufen immer über den Meter.</td>
             <td class="hint">Wenn der Agent ausserhalb von Microsoft 365 bereitgestellt wird (Websites, Apps, Teams, andere Kanäle). Lizenzierung und Kanalverfügbarkeit separat prüfen.</td>
           </tr>
           <tr>
             <td class="usecase">Eigenes Modell / eigener Orchestrator / eigenes Hosting</td>
             <td><span class="pill">Custom Engine Agent</span></td>
+            <td class="lic"><span class="license-badge license-external">Eigene Azure-Kosten</span><br>Keine Copilot Credits &ndash; Modell-Hosting/Tokens (z.B. Azure AI Foundry) werden separat abgerechnet.</td>
             <td class="hint">Wenn eigene Modelle, eigene Orchestrierung oder eigenes Hosting nötig sind. Diese Agents laufen ausserhalb der Standard-M365-Agent-Runtime.</td>
           </tr>
         </tbody>
@@ -134,8 +156,12 @@
       <div class="legend">
         <span><span class="dot" style="background:#EFF6FC;border:1px solid #CBE3F7;"></span>Empfohlenes Werkzeug</span>
         <span><span class="dot" style="background:#FFF4CE;"></span>Wichtiger Hinweis / Korrektur</span>
+        <span><span class="dot" style="background:#E6F4EA;border:1px solid #BFE3C8;"></span>Keine Zusatzlizenz</span>
+        <span><span class="dot" style="background:#EFF6FC;border:1px solid #CBE3F7;"></span>Lizenz oder Credits</span>
+        <span><span class="dot" style="background:#FFF4CE;border:1px solid #F0DD9A;"></span>Credits immer</span>
+        <span><span class="dot" style="background:#FDE7EF;border:1px solid #F5B8CD;"></span>M365 Copilot Lizenz zwingend</span>
       </div>
-      <div>Quellen: learn.microsoft.com &middot; support.microsoft.com &nbsp;|&nbsp; Stand: 11.07.2026 &nbsp;|&nbsp; Werte vor Produktivnutzung gegen aktuelle Microsoft-Doku pr\u00fcfen</div>
+      <div>Quellen: learn.microsoft.com &middot; support.microsoft.com &nbsp;|&nbsp; Stand: 16.07.2026 &nbsp;|&nbsp; Werte vor Produktivnutzung gegen aktuelle Microsoft-Doku prüfen</div>
     </footer>
   </div>
 </body>

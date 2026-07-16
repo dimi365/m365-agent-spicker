@@ -112,7 +112,24 @@ tbody tr:nth-child(even) td { background: var(--zebra); }
 tbody tr:hover td { background: #EAF3FB; }
 
 td.usecase { font-weight: 600; color: var(--ink); width: 27%; }
-td.hint    { color: var(--ink-soft); width: 46%; }
+td.lic     { color: var(--ink-soft); width: 20%; min-width: 170px; font-size: 11px; line-height: 1.5; }
+td.hint    { color: var(--ink-soft); width: 33%; }
+
+/* ---------- End-user license badges ---------- */
+.license-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.license-free    { background: #E6F4EA; border: 1px solid #BFE3C8; color: #1E6B34; }
+.license-choice  { background: #EFF6FC; border: 1px solid #CBE3F7; color: #1B4C7A; }
+.license-credits { background: #FFF4CE; border: 1px solid #F0DD9A; color: #7A5B00; }
+.license-required{ background: #FDE7EF; border: 1px solid #F5B8CD; color: #8A1C45; }
+.license-external{ background: #F1F0EE; border: 1px solid #DEDCD8; color: #555; }
 
 /* ---------- Tool badge (pill) ---------- */
 .pill {
@@ -199,6 +216,7 @@ footer a { color: var(--brand); text-decoration: none; }
   }
   td.usecase::before { content: "Use Case"; }
   td:nth-of-type(2)::before { content: "Empfohlenes Werkzeug"; }
+  td.lic::before { content: "End-User-Lizenz"; }
   td.hint::before { content: "Hinweis"; }
 
   td.usecase { width: 100% !important; font-size: 14px; }
